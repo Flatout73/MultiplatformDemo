@@ -8,7 +8,7 @@
 import SwiftUI
 
 public struct ContentView: View {
-    let arr = (0...10).map { String($0) }
+    let arr = (0...20).map { String($0) }
 
     public init() {
         
@@ -17,16 +17,23 @@ public struct ContentView: View {
     @State
     private var selectedItem: String?
 
+    @FocusState
+    private var focusPage: String?
+
     @ViewBuilder
     var listView: some View {
 #if os(watchOS)
         List(arr, id: \.self) { number in
             NavigationLink(destination: DetailedView(str: number)) {
-                Text(number)
+                CellView(text: number)
             }
         }
 #else
-        List(arr, id: \.self, selection: $selectedItem, rowContent: Text.init)
+        List(arr, id: \.self, selection: $selectedItem) {
+            CellView(text: $0)
+                .focused($focusPage, equals: $0)
+                .scaleEffect(focusPage == $0 ? 2 : 1)
+        }
 #endif
 
     }
