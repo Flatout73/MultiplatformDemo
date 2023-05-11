@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		712741332A0C655A0091CBBD /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712741322A0C655A0091CBBD /* CellView.swift */; };
-		712741342A0D8A080091CBBD /* Views.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 719BB03B2A0313E000138C58 /* Views.framework */; platformFilter = ios; };
-		712741352A0D8A080091CBBD /* Views.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 719BB03B2A0313E000138C58 /* Views.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		712741342A0D8A080091CBBD /* Views.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 719BB03B2A0313E000138C58 /* Views.framework */; };
+		712741352A0D8A080091CBBD /* Views.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 719BB03B2A0313E000138C58 /* Views.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		716C1C9D2A0C222600A0942E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 716C1C802A0C219200A0942E /* WidgetKit.framework */; };
 		716C1C9E2A0C222600A0942E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 716C1C822A0C219200A0942E /* SwiftUI.framework */; };
 		716C1CA12A0C222600A0942E /* Static_WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716C1CA02A0C222600A0942E /* Static_WidgetBundle.swift */; };
@@ -571,7 +571,6 @@
 /* Begin PBXTargetDependency section */
 		712741372A0D8A080091CBBD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			platformFilter = ios;
 			target = 719BB03A2A0313E000138C58 /* Views */;
 			targetProxy = 712741362A0D8A080091CBBD /* PBXContainerItemProxy */;
 		};
@@ -757,7 +756,7 @@
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx watchos watchsimulator";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -798,7 +797,7 @@
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx watchos watchsimulator";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
