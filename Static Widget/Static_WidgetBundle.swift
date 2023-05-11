@@ -12,6 +12,5 @@ import SwiftUI
 struct Static_WidgetBundle: WidgetBundle {
     var body: some Widget {
         Static_Widget()
-        Static_WidgetLiveActivity()
     }
 }

@@ -8,29 +8,30 @@
 import SwiftUI
 
 public struct ContentView: View {
-    let arr = (0...20).map { String($0) }
+    let arr = (0...20).map { Date(timeIntervalSinceNow: Double($0 * 100)) }
 
     public init() {
         
     }
 
     @State
-    private var selectedItem: String?
+    private var selectedItem: Date?
 
     @FocusState
-    private var focusPage: String?
+    private var focusPage: Date?
 
     @ViewBuilder
     var listView: some View {
 #if os(watchOS)
         List(arr, id: \.self) { number in
-            NavigationLink(destination: DetailedView(str: number)) {
-                CellView(text: number)
+            NavigationLink(destination: DetailedView(str: String(number.timeIntervalSince1970))) {
+                CellView(date: number)
             }
         }
+        .listStyle(CarouselListStyle())
 #else
         List(arr, id: \.self, selection: $selectedItem) {
-            CellView(text: $0)
+            CellView(date: $0)
                 .focused($focusPage, equals: $0)
                 .scaleEffect(focusPage == $0 ? 2 : 1)
         }
@@ -63,7 +64,7 @@ public struct ContentView: View {
             Text("Content")
         } detail: {
             if let selectedItem {
-                DetailedView(str: selectedItem)
+                DetailedView(str: String(selectedItem.timeIntervalSince1970))
             } else {
                 Text("Empty")
             }

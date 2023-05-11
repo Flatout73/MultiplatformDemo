@@ -7,6 +7,7 @@
 
 import WidgetKit
 import SwiftUI
+import Views
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
@@ -42,7 +43,7 @@ struct Static_WidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        Text(entry.date, style: .time)
+        CellView(date: entry.date)
     }
 }
 
@@ -53,6 +54,7 @@ struct Static_Widget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             Static_WidgetEntryView(entry: entry)
         }
+        .supportedFamilies([.systemSmall])
         .configurationDisplayName("My Widget")
         .description("This is an example widget.")
     }

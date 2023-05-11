@@ -8,16 +8,22 @@
 import SwiftUI
 
 public struct CellView: View {
-    let text: String
+    let date: Date
 
+    public init(date: Date) {
+        self.date = date
+    }
+    
     public var body: some View {
-        Text(text)
+        Text(date, style: .time)
+        #if !os(iOS)
             .focusable(true)
+        #endif
     }
 }
 
 struct CellView_Previews: PreviewProvider {
     static var previews: some View {
-        CellView(text: "Test")
+        CellView(date: Date())
     }
 }
